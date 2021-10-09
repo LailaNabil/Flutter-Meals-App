@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:the_meals_app/models/category.dart';
 
 import '../widgets/category_item.dart';
 import '../dummy_data.dart';
@@ -22,6 +23,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         child: GridView(
           children: DUMMY_CATEGORIES
               .map((category) => CategoryItem(
+                    id: category.id,
                     title: category.title,
                     color: category.color,
                   ))
