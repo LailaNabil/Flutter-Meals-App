@@ -35,19 +35,35 @@ class MealItem extends StatelessWidget {
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Icon(Icons.access_time_sharp),
+                            Icon(Icons.schedule),
                             SizedBox(
                               width: 5,
                             ),
                             Text("${currentMeal.duration} min"),
                           ],
                         ),
-                        Text(currentMeal.complexity
-                            .toString()
-                            .substring("complexity.".length)),
-                        Text(currentMeal.affordability
-                            .toString()
-                            .substring("affordability.".length)),
+                        Row(
+                          children: [
+                            Icon(Icons.work),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Text(currentMeal.complexity
+                                .toString()
+                                .substring("complexity.".length)),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Icon(Icons.attach_money),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Text(currentMeal.affordability
+                                .toString()
+                                .substring("affordability.".length)),
+                          ],
+                        ),
                       ],
                     ),
                   ),
