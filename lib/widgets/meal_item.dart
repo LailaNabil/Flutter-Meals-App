@@ -47,7 +47,6 @@ class MealItem extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline5.copyWith(
                           backgroundColor: Colors.black45,
                           color: Colors.grey.shade200,
-                          // fontSize: 30
 
                         ),
                   ),
