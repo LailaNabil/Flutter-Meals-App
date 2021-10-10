@@ -24,10 +24,10 @@ class MyApp extends StatelessWidget {
               headline6:
                   TextStyle(fontFamily: 'RobotoCondensed', fontSize: 24))),
       home: CategoriesScreen(),
-      // routes: {
-      //   '/categories-meals': CategoryMealsScreen(),
-      //
-      // },
+      routes: {
+        // './': (ctx) => CategoriesScreen(),
+        '/categories-meals': (ctx) => CategoryMealsScreen(),
+      },
     );
   }
 }
