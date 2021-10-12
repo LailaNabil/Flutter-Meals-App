@@ -15,9 +15,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Meals'),
-      ),
+      // appBar: AppBar(
+      //   title: Text('Meals'),
+      // ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: GridView(
