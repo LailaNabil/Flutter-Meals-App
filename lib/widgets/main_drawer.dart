@@ -33,14 +33,14 @@ class _MainDrawerState extends State<MainDrawer> {
             title: 'Meals',
             icon: Icons.restaurant,
             onTap: () {
-              Navigator.of(context).pushNamed('/');
+              Navigator.of(context).pushReplacementNamed('/');
             },
           ),
           CustomListTile(
             title: 'Settings',
             icon: Icons.settings,
             onTap: () {
-              Navigator.of(context).pushNamed(SettingsScreen.routeName);
+              Navigator.of(context).pushReplacementNamed(SettingsScreen.routeName);
             },
           ),
         ],
