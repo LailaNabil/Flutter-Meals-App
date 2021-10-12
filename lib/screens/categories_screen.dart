@@ -14,11 +14,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('Meals'),
-      // ),
-      body: Padding(
+    return Padding(
         padding: const EdgeInsets.all(10.0),
         child: GridView(
           children: DUMMY_CATEGORIES
@@ -34,7 +30,6 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
               maxCrossAxisExtent: 200,
               childAspectRatio: 3 / 2),
         ),
-      ),
-    );
+      );
   }
 }

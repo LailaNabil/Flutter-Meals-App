@@ -8,11 +8,6 @@ class FavoritesScreen extends StatefulWidget {
 class _FavoritesScreenState extends State<FavoritesScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('Meals'),
-      // ),
-      body: Text('Favorites Screen'),
-    );
+    return Text('Favorites Screen');
   }
 }
