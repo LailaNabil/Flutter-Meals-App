@@ -33,10 +33,14 @@ class _TabsScreenState extends State<TabsScreen> {
         unselectedItemColor: Colors.white,
         selectedItemColor: Theme.of(context).accentColor,
         currentIndex: _selectedPageIndex,
+        // type: BottomNavigationBarType.shifting,
         items: [
           BottomNavigationBarItem(
+            // backgroundColor: Theme.of(context).primaryColor,
               icon: Icon(Icons.category), label: 'Categories'),
-          BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Favorites'),
+          BottomNavigationBarItem(
+              // backgroundColor: Theme.of(context).primaryColor,
+              icon: Icon(Icons.star), label: 'Favorites'),
         ],
       ),
     );
