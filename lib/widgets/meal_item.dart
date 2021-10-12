@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:the_meals_app/screens/meal_detail_screen.dart';
 
 import '../models/meal.dart';
 
@@ -7,13 +8,16 @@ class MealItem extends StatelessWidget {
 
   const MealItem({Key key, this.currentMeal}) : super(key: key);
 
-  void selectMeal() {}
+  void selectMeal(BuildContext context) {
+    Navigator.of(context).pushNamed(
+        MealDetailScreen.routeName, arguments: {'mealId': currentMeal.id});
+  }
 
   @override
   Widget build(BuildContext context) {
     final double cardHeight = 250;
     return InkWell(
-      onTap: selectMeal,
+      onTap: ()=>selectMeal(context),
       child: LayoutBuilder(
         builder: (ctx, constraints) {
           return Card(
@@ -80,23 +84,27 @@ class MealItem extends StatelessWidget {
                         fit: BoxFit.fitWidth,
                       )),
                 ),
-                  Positioned(
+                Positioned(
                   bottom: 70,
                   right: 0,
                   child: Container(
                     padding: const EdgeInsets.all(8.0),
-                    width: constraints.maxWidth * 3/5,
+                    width: constraints.maxWidth * 3 / 5,
                     color: Colors.black45,
                     alignment: Alignment.center,
                     child: Text(
                       currentMeal.title,
                       softWrap: true,
                       overflow: TextOverflow.fade,
-                      style: Theme.of(context).textTheme.headline5.copyWith(
+                      style: Theme
+                          .of(context)
+                          .textTheme
+                          .headline5
+                          .copyWith(
 
-                            color: Colors.grey.shade200,
+                        color: Colors.grey.shade200,
 
-                          ),
+                      ),
                     ),
                   ),
                 ),
