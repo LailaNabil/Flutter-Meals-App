@@ -5,19 +5,24 @@ import '../models/meal.dart';
 
 class MealItem extends StatelessWidget {
   final Meal currentMeal;
+  final Function removeItem;
 
-  const MealItem({Key key, this.currentMeal}) : super(key: key);
+  const MealItem({Key key, @required this.currentMeal,@required this.removeItem}) : super(key: key);
 
   void selectMeal(BuildContext context) {
-    Navigator.of(context).pushNamed(
-        MealDetailScreen.routeName, arguments: {'mealId': currentMeal.id});
+    Navigator.of(context).pushNamed(MealDetailScreen.routeName,
+        arguments: {'mealId': currentMeal.id}).then((result){
+          if(result!=null){
+            removeItem(result);
+          }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     final double cardHeight = 250;
     return InkWell(
-      onTap: ()=>selectMeal(context),
+      onTap: () => selectMeal(context),
       child: LayoutBuilder(
         builder: (ctx, constraints) {
           return Card(
@@ -96,15 +101,9 @@ class MealItem extends StatelessWidget {
                       currentMeal.title,
                       softWrap: true,
                       overflow: TextOverflow.fade,
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .headline5
-                          .copyWith(
-
-                        color: Colors.grey.shade200,
-
-                      ),
+                      style: Theme.of(context).textTheme.headline5.copyWith(
+                            color: Colors.grey.shade200,
+                          ),
                     ),
                   ),
                 ),

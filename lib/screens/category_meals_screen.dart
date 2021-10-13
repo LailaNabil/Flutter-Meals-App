@@ -4,32 +4,48 @@ import 'package:the_meals_app/models/meal.dart';
 import '../widgets/meal_item.dart';
 import '../dummy_data.dart';
 
-class CategoryMealsScreen extends StatelessWidget {
+class CategoryMealsScreen extends StatefulWidget {
   static const routeName = '/categories-meals';
-  // final String categoryId;
-  // final String categoryTitle;
-  //
-  // const CategoryMealsScreen({ this.categoryId, this.categoryTitle});
+
   @override
-  Widget build(BuildContext context) {
+  _CategoryMealsScreenState createState() => _CategoryMealsScreenState();
+}
+
+class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
+  void _removeMeal(String mealId){
+    print("remove");
+    setState(() {
+      displayedMeals.removeWhere((element) => element.id == mealId);
+    });
+  }
+  String categoryTitle;
+  List <Meal> displayedMeals = [];
+  @override
+  void didChangeDependencies() {
     final routeArgs = ModalRoute.of(context).settings.arguments as Map<String ,String>;
-    final categoryTitle = routeArgs['title'];
+    categoryTitle = routeArgs['title'];
     final categoryId = routeArgs['id'];
-    List categoryMeals = [];
     DUMMY_MEALS.forEach((element) {
       if (element.categories.contains(categoryId)) {
-        categoryMeals.add(element);
+        displayedMeals.add(element);
       }
     });
+    super.didChangeDependencies();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(categoryTitle),
       ),
       body: ListView.builder(itemBuilder: (ctx, index){
-        print(categoryMeals[index].title);
-        return MealItem(currentMeal: categoryMeals[index],);
+        print(displayedMeals[index].title);
+        return MealItem(currentMeal: displayedMeals[index],
+        removeItem: _removeMeal,
+        );
       },
-      itemCount: categoryMeals.length,
+      itemCount: displayedMeals.length,
       ),
     );
   }
